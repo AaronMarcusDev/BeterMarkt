@@ -1,3 +1,29 @@
 __pycache__
 .venv
 start.bat
+
+# Flutter parts
+betermarkt_app/android
+betermarkt_app/.metadata
+betermarkt_app/.flutter-plugins-dependencies
+betermarkt_app/build
+betermarkt_app/*.yaml
+betermarkt_app/*.lock
+betermarkt_app/*.iml
+betermarkt_app/.idea
+betermarkt_app/.dart_tool
+
+gradle-wrapper.jar
+*/.gradle
+*/captures/
+*/gradlew
+*/gradlew.bat
+*/local.properties
+*/GeneratedPluginRegistrant.java
+*.cxx/
+
+# Remember to never publicly share your keystore.
+# See https://flutter.dev/to/reference-keystore
+key.properties
+**/*.keystore
+**/*.jks

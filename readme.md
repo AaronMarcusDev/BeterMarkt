@@ -1,6 +1,8 @@
 # BeterMarkt
 Een verbeterde zoekmachine voor MarktPlaats, zonder gezeik.
 
+<img src="./betermarkt_app/assets/icon.png" width="100">
+
 <img src="./images/cover.png" width="400">
 
 ## Waarom bestaat dit?
