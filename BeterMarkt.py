@@ -7,6 +7,13 @@ from get_postcode_data import postcode_data
 from get_marktplaats_listings import get_listings
 from categories import category_list
 
+# Favicon and page info
+st.set_page_config(
+    page_title = "Betermarkt",
+    page_icon="./favicon.png",
+    layout = "wide"
+)
+
 # Titel
 st.title("BeterMarkt 🔎")
 st.write('###### *Een geoptimaliseerde Marktplaats zoektool*')

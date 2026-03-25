@@ -27,3 +27,6 @@ gradle-wrapper.jar
 key.properties
 **/*.keystore
 **/*.jks
+
+# Mac specific
+.DS_Store
