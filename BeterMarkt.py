@@ -6,6 +6,9 @@ from marktplaats import SearchQuery, SortBy, SortOrder, Condition, category_from
 from get_postcode_data import postcode_data
 from get_marktplaats_listings import get_listings
 from categories import category_list
+import folium
+from streamlit_folium import st_folium
+
 
 # Favicon and page info
 st.set_page_config(
@@ -85,24 +88,25 @@ if km_limit_checkbox and postcode_input:
 try:
     if km_limit_checkbox and lat and lon:
         st.markdown(f"##### 📍 Zoekgebied: {str(max_km)}km radius van {postcode_input}, {city}")
-        st.pydeck_chart(pdk.Deck(
-            initial_view_state=pdk.ViewState(
-                latitude=lat,
-                longitude=lon,
-                zoom=8,
-                pitch=0,
-            ),
-            map_style="mapbox://styles/mapbox/light-v9",
-            layers=[
-                pdk.Layer(
-                    "ScatterplotLayer",
-                    data=pd.DataFrame([{"lat": lat, "lon": lon}]),
-                    get_position='[lon, lat]',
-                    get_color='[0, 100, 255, 160]',
-                    get_radius=max_km * 1000,  # radius in meters
-                )
-            ]
-        ))
+        
+        m = folium.Map(location=[lat, lon], zoom_start=9)
+
+        # Circle for the radius
+        folium.Circle(
+            location=[lat, lon],
+            radius=max_km * 1000,  # meters
+            color="#0064ff",
+            fill=True,
+            fill_opacity=0.2
+        ).add_to(m)
+
+        # Center marker
+        folium.Marker(
+            location=[lat, lon],
+            tooltip=f"{postcode_input}, {city}"
+        ).add_to(m)
+
+        st_folium(m, use_container_width=True, height=400)
     elif not km_limit_checkbox:
         pass
     else:
