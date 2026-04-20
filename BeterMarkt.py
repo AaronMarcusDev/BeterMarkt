@@ -5,9 +5,48 @@ from datetime import datetime, timedelta
 from marktplaats import SearchQuery, SortBy, SortOrder, Condition, category_from_name
 from get_postcode_data import postcode_data
 from get_marktplaats_listings import get_listings
-from categories import category_list
 import folium
 from streamlit_folium import st_folium
+
+category_list = [
+    "Antiek en Kunst", 
+    "Audio, Tv en Foto", 
+    "Auto's",
+    "Auto-onderdelen",
+    "Auto diversen",
+    "Boeken",
+    "Caravans en Kamperen",
+    "Cd's en Dvd's",
+    "Computers en Software",
+    "Contacten en Berichten",
+    "Diensten en Vakmensen",
+    "Dieren en Toebehoren",
+    "Doe-het-zelf en Verbouw",
+    "Fietsen en Brommers",
+    "Hobby en Vrije tijd",
+    "Huis en Inrichting",
+    "Huizen en Kamers",
+    "Kinderen en Baby's",
+    "Kleding | Dames",
+    "Kleding | Heren",
+    "Motoren",
+    "Muziek en Instrumenten",
+    "Postzegels en Munten",
+    "Sieraden, Tassen en Uiterlijk",
+    "Spelcomputers en Games",
+    "Sport en Fitness",
+    "Telecommunicatie",
+    "Tickets en Kaartjes",
+    "Tuin en Terras",
+    "Vacatures",
+    "Vakantie",
+    "Verzamelen",
+    "Watersport en Boten",
+    "Witgoed en Apparatuur",
+    "Zakelijke goederen",
+    "Diversen",
+    "Doorzoek alles",
+]
 
 
 # Favicon and page info
@@ -18,7 +57,7 @@ st.set_page_config(
 )
 
 # Titel
-st.title("BeterMarkt 🔎")
+st.title("BeterMarkt")
 st.write('###### *Een geoptimaliseerde Marktplaats zoektool*')
 
 # Query's
@@ -46,7 +85,7 @@ if postcode_data(postcode_input)[0] == "onjuiste postcode":
 else:
     correct_postcode = True
 
-max_results = st.slider("Aantal advertenties", 1, 100, 30)
+max_results = st.slider("Aantal advertenties", 100, 1000, 30)
 
 st.markdown('---')
 st.write('###### Aanvullende opties:')
@@ -54,7 +93,7 @@ st.write('###### Aanvullende opties:')
 max_price = 900000
 max_price_checkbox = st.checkbox("Maximale prijs", value=st.session_state.get("max_price_checkbox", False))
 if max_price_checkbox:
-    max_price = st.slider("€", 1, 500, value=st.session_state.get("max_price", 50))
+    max_price = st.text_input("Getal in euro's")
     st.session_state["max_price"] = max_price
 st.session_state["max_price_checkbox"] = max_price_checkbox
 

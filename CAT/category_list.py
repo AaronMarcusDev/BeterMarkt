@@ -34,5 +34,6 @@ category_list = [
     "Watersport en Boten",
     "Witgoed en Apparatuur",
     "Zakelijke goederen",
-    "Diversen"
+    "Diversen",
+    "Doorzoek alles",
 ]
