@@ -1,7 +1,7 @@
-[theme]
-base = "light"                  # or "dark"
-primaryColor = "#eb6e00"        # accent color (buttons, sliders, etc.)
-backgroundColor = "#392b2b"     # main background
-secondaryBackgroundColor = "#1f1f1eb2"  # sidebar and widget backgrounds
-textColor = "#31333F"           # body text
-font = "sans serif"   
+#[theme]
+#base = "light"                  # or "dark"
+#primaryColor = "#eb6e00"        # accent color (buttons, sliders, etc.)
+#backgroundColor = "#392b2b"     # main background
+#secondaryBackgroundColor = "#1f1f1eb2"  # sidebar and widget backgrounds
+#textColor = "#31333F"           # body text
+#font = "sans serif"   
